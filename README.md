@@ -1,7 +1,10 @@
 # My Chatbot
 
+LINK: 
+
+
 A simple chatbot built with **HTML, CSS, and JavaScript** for the frontend, and **Node.js (Express)** as the backend.  
-It connects to the **OpenAI API** to generate responses.
+It connects to the **GEMINI API** to generate responses.
 
 ---
 
