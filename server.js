@@ -32,7 +32,9 @@ app.post('/chat', async (req, res) => {
     const chatHistory = [{ role: "user", parts: [{ text: userMessage }] }];
     const payload = { contents: chatHistory };
 
-    const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+    const geminiApiUrl =
+    `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
 
 
     try {
