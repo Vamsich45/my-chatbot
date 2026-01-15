@@ -43,13 +43,15 @@ app.post('/chat', async (req, res) => {
         });
 
         if (!geminiResponse.ok) {
-            const errorData = await geminiResponse.json();
-            console.error('Gemini API Error:', errorData);
-            return res.status(geminiResponse.status).json({
-                error: 'Failed to get response from Gemini API',
-                details: errorData
-            });
-        }
+    const text = await geminiResponse.text();
+    console.error('Gemini API RAW ERROR:', text);
+
+    return res.status(500).json({
+        error: 'Gemini API failed',
+        raw: text
+    });
+}
+
 
         const geminiResult = await geminiResponse.json();
         let botText = "I'm sorry, I couldn't get a clear response from the AI.";
