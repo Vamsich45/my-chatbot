@@ -5,16 +5,17 @@ const cors = require('cors');
 const fetch = require('node-fetch');        // v2.x
 require('dotenv').config();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;   //  keep this line
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
 if (!GEMINI_API_KEY) {
-    console.error("Error: GEMINI_API_KEY is not set. Please create a .env file with your key.");
-    process.exit(1);
+    console.warn("⚠️ GEMINI_API_KEY not set. Chatbot will not work, but server will start.");
 }
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;      //  use Render’s PORT
 
-app.use(cors());
+app.use(cors()); 
 app.use(express.json());
 
 // Serve the static frontend from the same server
